@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Все люди</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #262626;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            display: block;
+            text-decoration: none;
+            color: #ffffff;
+            padding: 10px;
+            margin: 5px;
+            background-color: #262626;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a:hover {
+            background-color: #ffffff;
+            color: #262626;
+        }
+
+        div {
+            background-color: #262626;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            transition: background-color 0.3s;
+        }
+
+        div:hover {
+            background-color: #262626;
+        }
+    </style>
+</head>
+<body>
+  <div th:each="person: ${people}">
+      <a th:href="@{/people/{id}(id = ${person.getId()})}" th:text="${person.getName()}"  ></a>
+      <a th:href="@{/people/{id}(id = ${person.getId()})}" th:text="${person.getSurname()}"  ></a>
+      <a th:href="@{/people/{id}(id = ${person.getId()})}" th:text="${person.getAge()}"  ></a>
+
+  </div>
+
+<a href="/people/new">Создать новую персону</a>
+  <a href="/main"> Вернуться в главное меню</a>
+
+</body>
+</html>
